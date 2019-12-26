@@ -1,0 +1,29 @@
+For good programming skills, you must:
+
+Develop a close understanding between the hardware and the software!
+
+Read status of a pin
+Control status of a pin
+
+Learn different methods for operating the hardware
+- Turn on/off
+- Flash on/off
+- Pulse on/off
+- Send codes
+
+Learn different methods for reading an input
+- Measure status of a pin
+- Measure change time of a pin
+- Measure group of pins
+
+Communication methods
+- Synchronous - Shift Register
+- Asynchronous - RS232
+
+Control Program Flow
+- Decisions
+- Loops
+- Counters
+
+Based off
+https://youtu.be/mxrF2i7w0Ak
