@@ -41,6 +41,8 @@ Main:                                             ' Define Main Label/Address/An
   PAUSE delay                                     ' "HOME" places the cursor at home in upper-left corner of the screen.
 
 'Control Outputs
+' OUT15 = x                                       ' If used, pin 15 would be controlled by whatever pin "x" is
+
 GOTO Main                                          ' Go to the Label/Address/Anchor called Main.
                                                    ' GOTO is often used to create endless loops.
 
