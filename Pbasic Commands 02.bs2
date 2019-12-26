@@ -5,6 +5,8 @@
 ' https://www.youtube.com/watch?v=BIxCCiNpJpg
 
 ' The program is meant to debug the board. It's meant to see if certain pins are turned 'ON' (1) or 'OFF' (0).
+' OPTIONAL:
+' If knowledgeable, a multimeter can be used to measure voltage.
 
 ' More Utilized Resources:
 ' http://www.sfu.ca/phys/430/basicstampman.pdf
