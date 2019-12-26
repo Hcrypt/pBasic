@@ -1,0 +1,42 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+' Program is based off
+' https://www.youtube.com/watch?v=BIxCCiNpJpg
+
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN].
+
+' Initialize Ports
+  DIRS = %1111111100000000            ' Pin 0 - 7 = inputs (0)
+                                      ' Pin 8 - 15 = outputs (1)
+
+' DIRS determines whether a PIN's state is set by external circuitry (INPUT, 0) OR by the state of OUTS (OUTPUT, 1).
+' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
+
+' Define Variables
+
+' Define Constants (Constant = A variable that doesn't change.)
+One_Second                           CON 1000      ' Represents 1000 milliseconds (1 second)
+LED                                  CON 5         ' Represents PIN 5
+
+' Initialize Variables
+
+Main:                                             ' Define Main Label/Address/Anchor
+                                                  ' https://en.wikibooks.org/wiki/PBASIC_Programming/Labels_and_GOTO
+                                                   
+'Read Inputs
+'-blank-
+
+'Process Inputs
+'-blank-
+
+'Control Outputs
+HIGH LED                                           ' Represents Pin 5               (Pin 5 uses 5v)
+PAUSE One_Second                                   ' Represents 1000 milliseconds   (1 seconds)
+LOW LED                                            ' Represents Pin 5               (Pin 5 uses 0v)
+PAUSE One_Second                                   ' Represents 1000 milliseconds   (1 seconds)
+
+GOTO Main                                          ' Go to the Label/Address/Anchor called Main.
+                                                   ' GOTO is often used to create endless loops.
+
+END
