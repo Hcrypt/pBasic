@@ -5,8 +5,6 @@
 ' https://www.youtube.com/watch?v=BIxCCiNpJpg
 
 ' The program is meant to debug the board. It's meant to see if certain pins are turned 'ON' (1) or 'OFF' (0).
-' OPTIONAL:
-' If knowledgeable, a multimeter can be used to measure voltage.
 
 ' More Utilized Resources:
 ' http://www.sfu.ca/phys/430/basicstampman.pdf
@@ -19,7 +17,7 @@
 ' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
 
 ' Define Variables
-  x                VAR         Bit                ' The variable of "x" is defined as a binary number (0 or 1).
+x                  VAR         Bit                ' The variable of "x" is defined as a binary number (0 or 1).
 
 ' Define Constants (Constant = A variable that doesn't change.)
 delay              CON         100                ' The variable "delay" represents 100 milliseconds.
