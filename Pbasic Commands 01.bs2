@@ -4,6 +4,11 @@
 ' Program is based off
 ' https://www.youtube.com/watch?v=BIxCCiNpJpg
 
+' More Utilized Resources:
+' http://www.sfu.ca/phys/430/basicstampman.pdf
+' https://learn.parallax.com/tutorials/robot/shield-bot/robotics-board-education-shield-arduino/chapter-2-shield-lights-servo-15
+' https://cs.stanford.edu/people/nick/led-without-resistor/
+
 ' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN].
 
 ' Initialize Ports
