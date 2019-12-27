@@ -16,6 +16,7 @@
                                       ' Pin 8 - 15 = outputs (1)
 
 ' DIRS determines whether a PIN's state is set by external circuitry (INPUT, 0) OR by the state of OUTS (OUTPUT, 1).
+' In other words, is that pin inputing data or outputing data?
 ' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
 
 ' Define Variables
