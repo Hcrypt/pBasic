@@ -1,0 +1,61 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN], Resistor & Capacitor.
+' It's going to read "digital" information from a single port; not a serial.
+' The BOE micro-controller's thrusthold is 1.4v
+' We're going to set the initilization of the circuit to 0v and see how long it takes to reach 1.4v
+' The "time" it takes for the value to go from one state to another will be measured and
+' stored to represent the difference resistance that is connected to the capacitor. EX: (Sensor/s)
+
+' Program is based off
+' https://youtu.be/mdvFgwh_89k
+
+' More Utilized Resources:
+' http://www.sfu.ca/phys/430/basicstampman.pdf
+
+' Initialize Ports
+  DIRS = %1111111100000000            ' Pin 0 - 7 = inputs (0)
+                                      ' Pin 8 - 15 = outputs (1)
+
+' DIRS determines whether a PIN's state is set by external circuitry (INPUT, 0) OR by the state of OUTS (OUTPUT, 1).
+' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
+
+' Define Variables
+  x VAR Word                                               ' save the value coming from the analog to the digital convertor
+
+' Define Constants (Constant = A variable that doesn't change.)
+  LED CON 15
+  RC  CON 2                                                ' Measure the variable time (the sensor?)
+
+' Initialize Variables
+  x = 0                                                    ' "x" contains 0
+
+Repeat:
+DO
+
+'Read Inputs (it's a 3 step process)
+  LOW RC
+  PAUSE 1
+  RCTIME RC, 0, x
+
+  DEBUG HOME, DEC5 x
+
+'Process Inputs
+  IF x < 75 THEN process_a
+  IF x > 75 THEN process_b
+  GOTO Repeat
+
+'Control Outputs
+  process_a:
+  LOW LED                                                   ' If x < 100, then turn off pin 15
+  ' Repeat Process
+  GOTO Repeat
+
+  process_b:
+  HIGH LED
+  'Repeat Process                                          ' If x > 100, then turn on pin 15
+
+LOOP
+
+END
