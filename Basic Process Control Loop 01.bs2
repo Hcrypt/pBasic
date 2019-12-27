@@ -2,7 +2,7 @@
 ' {$PBASIC 2.5}
 
 ' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN], Resistor & Capacitor.
-' Reads input on pin 4 and controls output on pin 5
+' Reads input on pin 4 and controls output on pin 5. 
 
 ' Program is based off
 ' https://youtu.be/pofj2dmh8N0
@@ -34,8 +34,8 @@ Repeat:
   x = ~x
 
 'Control Outputs
-  OUT5 = x
-
+  OUT5 = x                                                  ' outputs a binary value of 0, it will output 0v
+                                                            ' outputs a binary value of 1, it will output 5v
 'Repeat Process
   GOTO Repeat
 
