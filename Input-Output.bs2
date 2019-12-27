@@ -1,0 +1,42 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN], Resistor & Capacitor.
+' Reads input on pin 4 and controls output on pin 5
+
+' Program is based off
+' https://youtu.be/pofj2dmh8N0
+
+' More Utilized Resources:
+' http://www.sfu.ca/phys/430/basicstampman.pdf
+
+' Initialize Ports
+  DIRS = %1111111100000000            ' Pin 0 - 7 = inputs (0)
+                                      ' Pin 8 - 15 = outputs (1)
+
+' DIRS determines whether a PIN's state is set by external circuitry (INPUT, 0) OR by the state of OUTS (OUTPUT, 1).
+' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
+
+' Define Variables
+  x VAR Byte
+
+' Define Constants (Constant = A variable that doesn't change.)
+' -blank-
+
+' Initialize Variables
+  x = 0                                                    ' "x" contains 0
+
+Repeat:
+'Read Inputs
+  x = IN4
+
+'Process Inputs
+  x = ~x
+
+'Control Outputs
+  OUT5 = x
+
+'Repeat Process
+  GOTO Repeat
+
+END
