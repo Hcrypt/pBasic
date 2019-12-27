@@ -1,0 +1,62 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+' Analog to Digital Convertor
+' The program takes a voltage and converts it into binary number.
+' The size of that binary number is 8 bits (1 byte).
+
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN].
+
+' Program is based off
+' https://youtu.be/kC7YLGA5eDQ
+
+' More Utilized Resources:
+' http://www.sfu.ca/phys/430/basicstampman.pdf
+
+' Initialize Ports
+  DIRS = %1111111100000000            ' Pin 0 - 7 = inputs (0)
+                                      ' Pin 8 - 15 = outputs (1)
+
+' DIRS determines whether a PIN's state is set by external circuitry (INPUT, 0) OR by the state of OUTS (OUTPUT, 1).
+' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
+
+' Define Variables
+  x VAR Byte                                               ' save the value coming from the analog to the digital convertor
+
+' Define Constants (Constant = A variable that doesn't change.)
+  CS               PIN 14
+  CLK              PIN 13
+  DataOutput       PIN 1
+
+' Initialize Variables
+  x = 0                                                    ' "x" contains 0
+
+Repeat:
+DO
+
+'Read Inputs
+  HIGH CS                                                  ' Turn on "CS" (PIN 14)
+  LOW CS                                                   ' Turn off "CS" (PIN 14)
+  LOW CLK                                                  ' Turn off "CLK" (PIN 13)
+  PULSOUT CLK, 210                                         ' Intialize a 420 microsecond pulse (2*210=420)
+  SHIFTIN DataOutput, CLK, MSBPOST, [x\8]                  ' Shiftin the information and store it as a 8 bit value
+  DEBUG HOME, DEC3 x                                       ' Display the value on the debug screen at the home position
+
+'Process Inputs
+  IF x < 100 THEN process_a
+  IF x > 100 THEN process_b
+  GOTO Repeat
+
+'Control Outputs
+  process_a:
+  LOW 5                                                   ' If x < 100, then turn off pin 15
+  ' Repeat Process
+  GOTO Repeat
+
+  process_b:
+  HIGH 5
+  'Repeat Process                                          ' If x > 100, then turn on pin 15
+
+LOOP
+
+END
