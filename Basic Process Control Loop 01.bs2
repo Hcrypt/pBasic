@@ -28,12 +28,12 @@
 
 Repeat:
 'Read Inputs
-  x = IN4
+  x = IN4                                                   ' Reads either a binary value of 0 (off) or 1 (on)
 
 'Process Inputs
-  x = ~x
+  x = ~x                                                    ' Gets the opposite of x. Ex: If "x" is 0, "x" now is "1".
 
-'Control Outputs
+'Control Outputs                                            ' Takes what is "x" and outputs it to pin 5
   OUT5 = x                                                  ' outputs a binary value of 0, it will output 0v
                                                             ' outputs a binary value of 1, it will output 5v
 'Repeat Process
