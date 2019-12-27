@@ -1,0 +1,50 @@
+' {$STAMP BS2}
+' {$PBASIC 2.5}
+
+' Program is based off
+' https://youtu.be/Rp1OWiZY27c
+
+' More Utilized Resources:
+' http://www.sfu.ca/phys/430/basicstampman.pdf
+
+' Initialize Ports
+  DIRS = %1111111100000000            ' Pin 0 - 7 = inputs (0)
+                                      ' Pin 8 - 15 = outputs (1)
+
+' DIRS determines whether a PIN's state is set by external circuitry (INPUT, 0) OR by the state of OUTS (OUTPUT, 1).
+' https://www.parallax.com/go/PBASICHelp/Content/LanguageTopics/Reference/MemoryOrg.htm
+
+' Define Variables
+  x VAR Byte                                               ' save the information read in raw memory
+  y VAR Byte                                               ' use as a pointer to the location in memory (later to be DATA @100)
+
+' Define Constants (Constant = A variable that doesn't change.)
+  delay                       CON 1000                     ' Represents 1000 milliseconds (1 second)
+  codes                       DATA  @100, 1, 4, 7, 9, 0    ' "codes" holds data that are sent to address @100. The data contains "1,4,7,9,0"
+
+' Initialize Variables
+  x = 0                                                    ' "x" contains 0
+  y = codes                                                ' "y" contains the data located at address @100
+
+Main:                                             ' Define Main Label/Address/Anchor
+                                                  ' https://en.wikibooks.org/wiki/PBASIC_Programming/Labels_and_GOTO
+
+'Read Inputs
+'-blank-
+
+'Process Inputs
+  READ y, x                                       ' "y" is going to read @100, then saved onto "x"
+  DEBUG HOME, DEC x                               ' using the DEBUG function, to go to the home position and print the value of "x"
+  PAUSE delay                                     ' delay for 1 second
+  IF x = 0 THEN reset                             ' if the value of x = 0 (last value in memory), then reset "x" back to "0"
+  y = y + 1                                       ' if it's not equal to 0, it will increase "y" by 1.
+  GOTO Main
+
+  reset:
+  y = 100
+
+'Control Outputs
+GOTO Main                                          ' Go to the Label/Address/Anchor called Main.
+                                                   ' GOTO is often used to create endless loops.
+
+END
