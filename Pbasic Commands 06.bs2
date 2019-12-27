@@ -5,7 +5,7 @@
 ' The program takes a voltage and converts it into binary number.
 ' The size of that binary number is 8 bits (1 byte).
 
-' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN].
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN] & a rotator (?).
 
 ' Program is based off
 ' https://youtu.be/kC7YLGA5eDQ
@@ -24,8 +24,8 @@
   x VAR Byte                                               ' save the value coming from the analog to the digital convertor
 
 ' Define Constants (Constant = A variable that doesn't change.)
-  CS               PIN 14
-  CLK              PIN 13
+  CS               PIN 14                                  ' The chip
+  CLK              PIN 13                                  ' The clock
   DataOutput       PIN 1
 
 ' Initialize Variables
@@ -49,13 +49,13 @@ DO
 
 'Control Outputs
   process_a:
-  LOW 5                                                   ' If x < 100, then turn off pin 15
+  LOW 5                                                   ' If x < 100, then turn off pin 15 (LED)
   ' Repeat Process
   GOTO Repeat
 
   process_b:
   HIGH 5
-  'Repeat Process                                          ' If x > 100, then turn on pin 15
+  'Repeat Process                                          ' If x > 100, then turn on pin 15 (LED)
 
 LOOP
 
