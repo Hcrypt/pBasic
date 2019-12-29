@@ -1,7 +1,7 @@
 ' {$STAMP BS2}
 ' {$PBASIC 2.5}
 
-' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN], Resistor & Capacitor.
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN] and a switch.
 ' Reads input on pin 4 and controls output on pin 5. 
 
 ' Program is based off
