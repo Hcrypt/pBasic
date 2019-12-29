@@ -5,10 +5,12 @@
 ' The program takes a voltage and converts it into binary number.
 ' The size of that binary number is 8 bits (1 byte).
 
-' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN] & a rotator (?).
+' This programs assume you know how to hook up a LED with a current-limiting resistor (220 ohms) [RED-RED-BROWN] & a light sensor (?).
 
 ' Program is based off
 ' https://youtu.be/kC7YLGA5eDQ
+' &
+' https://youtu.be/q4fkDaGSjTA
 
 ' More Utilized Resources:
 ' http://www.sfu.ca/phys/430/basicstampman.pdf
